@@ -1,3 +1,30 @@
+/*Thanks Material Design Lite!*/
 .center-me{
     text-align: center;
+}
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.welcometag-table{
+    display: table-row;
+}
+.welcometag-column-space, .welcometag-column-content{
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
+}
+.welcometag-column-space{
+    width: 50%;
+}
+.welcometag-column-content{
+    padding: 40px 40px 40px;
 }
