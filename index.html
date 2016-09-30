@@ -4,6 +4,7 @@
     <title>justinkneff.github.io</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+    
     <link rel="icon" type="image/png" href="">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -45,7 +46,25 @@
                             <h2 class="mdl-card__title-text">My Name is Justin Neff</h2>
                         </div>
                         <div class="mdl-card__supporting-text">
-                            I am a technology enthusiast. I love learning about new technology be it hardware or software.
+                            I am a technology enthusiast. I love learning about new technology wheter it's' hardware or software.
+                            <div class="dont-center-me">
+<pre><code class="javascript">
+import {Technology} from '/technolgy.js';
+import {Learning} from '/learning.js'
+
+export default Learning extends Interests {
+    constructor(){
+        super();
+        this.hobbies = [];
+    }
+    //call with: learning.addHobbies("hardware"); 
+    //or: learning.addHobbies("hardware");
+    addHobbies(hobby){
+        this.hobbies.push(hobby)
+    }
+}
+</code></pre>
+                            </div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
                             <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://github.com/justinkneff?tab=repositories">
@@ -65,5 +84,6 @@
         </div>
     </div>
     <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    
 </body>
 </html>

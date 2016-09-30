@@ -2,6 +2,12 @@
 .center-me{
     text-align: center;
 }
+.dont-center-me{
+    text-align: left;
+}
+.javascript{
+    font-size: .8em;
+}
 .demo-card-wide.mdl-card {
   width: 512px;
 }
