@@ -50,12 +50,13 @@
                             <div class="dont-center-me">
 <pre><code class="javascript">
 import {Technology} from '/technolgy.js';
-import {Learning} from '/learning.js'
+import {Interests} from '/Interests.js'
 
 export default Learning extends Interests {
     constructor(){
         super();
-        this.hobbies = [];
+        this.knowledge = new Technology();
+        this.hobbies = this.knowledge.getDefault;
     }
     //call with: learning.addHobbies("hardware"); 
     //or: learning.addHobbies("hardware");
