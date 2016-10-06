@@ -34,3 +34,25 @@
 .welcometag-column-content{
     padding: 40px 40px 40px;
 }
+
+/* C = 2πr, so in one case C = 2π × 30 ≈ 189 */
+/* 30 is set on 'r' or radius of Circle
+#testingcircles circle {
+  fill: yellowgreen;
+  stroke: #655;
+  stroke-width: 10;
+  stroke-dasharray: 155 189;
+}*/
+
+#languageplaceholder svg, .mdl-list__item-secondary-action svg {
+  width: 50px; height: 50px;
+  transform: rotate(-18deg);
+  background: yellowgreen;
+  border-radius: 50%;
+}
+
+#languageplaceholder circle, .mdl-list__item-secondary-action circle {
+  fill: yellowgreen;
+  stroke: #655;
+  stroke-width: 32;  
+}

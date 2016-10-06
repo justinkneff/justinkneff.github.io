@@ -66,24 +66,45 @@
             totals += globals.languages[attributeName];
         }
         //the joys of ECMA5!
-        var elementUnorderedList = "<ul class=\"demo-list-item mdl-list\">";
-        var openingLi = "<li class=\"mdl-list__item\">";
-        var openingSpan = "<span class=\"mdl-list__item-primary-content\">";
-        //stuff goes in here
-        var closingSpan = "</span>";
-        var closingLi = "</li>";
-        var elementUnorderedListClosing = "</ul>";
-
+        var startList =     "<div class=\"demo-list-action mdl-list\">"
+        var startListItem =     "<div class=\"mdl-list__item\"> <span class=\"mdl-list__item-primary-content\"> <span>" //${string1}
+        var endListPrimary =       "</span></span>"
+        var startSvg =          "<a class=\"mdl-list__item-secondary-action\" > <div class=\"pie\"> " //${string2}
+        var endSvg =            "</div></a>"
+        var endListItem =       "</div>"
+        var endList = "<div>"
         for (var attributeName in globals.languages){
             var attributeTotal = globals.languages[attributeName];
             var attributePercent = (attributeTotal / totals) * 100;
-            elementUnorderedList = elementUnorderedList + openingLi + openingSpan + attributeName + " - " + attributePercent.toFixed(2) + "%" + closingSpan + closingLi; 
+            var displayString = attributeName + " - " + attributePercent.toFixed(2) + "%";
+            startList = startList + startListItem + displayString + endListPrimary + startSvg + attributePercent + endSvg + endListItem;
         }
-        var endingElementList = elementUnorderedList + elementUnorderedListClosing;
-        document.getElementById("languageplaceholder").innerHTML = endingElementList;
+        startList = startList + endList;
+        document.getElementById("languageplaceholder").innerHTML = startList;
+        displayPieCharts();
     }
-
-    
+    //display a chart in SVG to show how much the code is visually in percents
+    function displayPieCharts(){
+        var elementsForPie = document.getElementsByClassName('pie');
+        for (var index = 0; index < elementsForPie.length; index++){
+            var p = parseFloat(elementsForPie[index].textContent); 
+            console.log(p);
+            var NS = "http://www.w3.org/2000/svg";
+            var svg = document.createElementNS(NS, "svg");
+            var circle = document.createElementNS(NS, "circle");
+            var title = document.createElementNS(NS, "title");
+            circle.setAttribute("r", 16);
+            circle.setAttribute("cx", 16);
+            circle.setAttribute("cy", 16);
+            circle.setAttribute("stroke-dasharray", p + " 100");
+            svg.setAttribute("viewBox", "0 0 32 32");
+            title.textContent = elementsForPie[index].textContent;
+            elementsForPie[index].textContent = '';
+            svg.appendChild(title);
+            svg.appendChild(circle);
+            elementsForPie[index].appendChild(svg);
+        }
+    }
 
     //call out to first server and start the chain of events.
     getCall("https://api.github.com/users/justinkneff/repos", reposResponse);
